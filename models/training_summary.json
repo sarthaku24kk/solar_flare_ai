@@ -1,0 +1,2053 @@
+{
+  "total_days": 20,
+  "total_samples": 172799,
+  "total_flares_detected": 224,
+  "flare_events_catalog": [
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-0115",
+      "peak_time": "2026-07-18 01:15:20",
+      "flare_class": "C-Class",
+      "peak_flux": 71.3,
+      "duration_mins": 13.2,
+      "hardness_ratio": 4.4875
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-0344",
+      "peak_time": "2026-07-18 03:44:40",
+      "flare_class": "B-Class",
+      "peak_flux": 16.5,
+      "duration_mins": 12.3,
+      "hardness_ratio": 1.2418
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-0405",
+      "peak_time": "2026-07-18 04:05:40",
+      "flare_class": "C-Class",
+      "peak_flux": 70.8,
+      "duration_mins": 17.8,
+      "hardness_ratio": 0.8508
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-0937",
+      "peak_time": "2026-07-18 09:37:30",
+      "flare_class": "B-Class",
+      "peak_flux": 28.1,
+      "duration_mins": 22.7,
+      "hardness_ratio": 0.8935
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-1026",
+      "peak_time": "2026-07-18 10:26:10",
+      "flare_class": "B-Class",
+      "peak_flux": 30.3,
+      "duration_mins": 11.5,
+      "hardness_ratio": 0.8918
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-1215",
+      "peak_time": "2026-07-18 12:15:10",
+      "flare_class": "B-Class",
+      "peak_flux": 18.9,
+      "duration_mins": 22.8,
+      "hardness_ratio": 0.5912
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-1558",
+      "peak_time": "2026-07-18 15:58:50",
+      "flare_class": "B-Class",
+      "peak_flux": 32.3,
+      "duration_mins": 46.5,
+      "hardness_ratio": 0.4058
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-1727",
+      "peak_time": "2026-07-18 17:27:40",
+      "flare_class": "B-Class",
+      "peak_flux": 35.2,
+      "duration_mins": 29.3,
+      "hardness_ratio": 0.4222
+    },
+    {
+      "date": "20260718",
+      "event_id": "FLARE-20260718-2152",
+      "peak_time": "2026-07-18 21:52:00",
+      "flare_class": "C-Class",
+      "peak_flux": 40.7,
+      "duration_mins": 15.3,
+      "hardness_ratio": 0.4989
+    },
+    {
+      "date": "20260719",
+      "event_id": "FLARE-20260719-1839",
+      "peak_time": "2026-07-19 18:39:00",
+      "flare_class": "B-Class",
+      "peak_flux": 25.6,
+      "duration_mins": 21.2,
+      "hardness_ratio": 3.152
+    },
+    {
+      "date": "20260719",
+      "event_id": "FLARE-20260719-1914",
+      "peak_time": "2026-07-19 19:14:50",
+      "flare_class": "C-Class",
+      "peak_flux": 48.5,
+      "duration_mins": 47.3,
+      "hardness_ratio": 1.5473
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0215",
+      "peak_time": "2026-07-20 02:15:20",
+      "flare_class": "B-Class",
+      "peak_flux": 22.2,
+      "duration_mins": 5.7,
+      "hardness_ratio": 0.6443
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0504",
+      "peak_time": "2026-07-20 05:04:30",
+      "flare_class": "B-Class",
+      "peak_flux": 25.0,
+      "duration_mins": 18.7,
+      "hardness_ratio": 0.4645
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0640",
+      "peak_time": "2026-07-20 06:40:20",
+      "flare_class": "B-Class",
+      "peak_flux": 32.4,
+      "duration_mins": 6.5,
+      "hardness_ratio": 0.4237
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0717",
+      "peak_time": "2026-07-20 07:17:00",
+      "flare_class": "B-Class",
+      "peak_flux": 24.2,
+      "duration_mins": 17.7,
+      "hardness_ratio": 0.5204
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0745",
+      "peak_time": "2026-07-20 07:45:50",
+      "flare_class": "C-Class",
+      "peak_flux": 57.3,
+      "duration_mins": 13.0,
+      "hardness_ratio": 0.3287
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0816",
+      "peak_time": "2026-07-20 08:16:10",
+      "flare_class": "B-Class",
+      "peak_flux": 34.5,
+      "duration_mins": 14.2,
+      "hardness_ratio": 0.3132
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0840",
+      "peak_time": "2026-07-20 08:40:00",
+      "flare_class": "C-Class",
+      "peak_flux": 46.9,
+      "duration_mins": 9.0,
+      "hardness_ratio": 0.2978
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-0916",
+      "peak_time": "2026-07-20 09:16:00",
+      "flare_class": "C-Class",
+      "peak_flux": 53.4,
+      "duration_mins": 12.8,
+      "hardness_ratio": 0.3689
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1012",
+      "peak_time": "2026-07-20 10:12:00",
+      "flare_class": "B-Class",
+      "peak_flux": 37.5,
+      "duration_mins": 17.8,
+      "hardness_ratio": 0.3741
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1110",
+      "peak_time": "2026-07-20 11:10:30",
+      "flare_class": "B-Class",
+      "peak_flux": 30.4,
+      "duration_mins": 13.7,
+      "hardness_ratio": 0.3333
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1124",
+      "peak_time": "2026-07-20 11:24:20",
+      "flare_class": "B-Class",
+      "peak_flux": 27.7,
+      "duration_mins": 15.8,
+      "hardness_ratio": 0.518
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1235",
+      "peak_time": "2026-07-20 12:35:00",
+      "flare_class": "C-Class",
+      "peak_flux": 93.4,
+      "duration_mins": 37.7,
+      "hardness_ratio": 0.4022
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1326",
+      "peak_time": "2026-07-20 13:26:30",
+      "flare_class": "C-Class",
+      "peak_flux": 92.9,
+      "duration_mins": 17.7,
+      "hardness_ratio": 0.1793
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1343",
+      "peak_time": "2026-07-20 13:43:00",
+      "flare_class": "C-Class",
+      "peak_flux": 89.7,
+      "duration_mins": 19.7,
+      "hardness_ratio": 0.1951
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1421",
+      "peak_time": "2026-07-20 14:21:00",
+      "flare_class": "C-Class",
+      "peak_flux": 79.4,
+      "duration_mins": 15.5,
+      "hardness_ratio": 0.1803
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1436",
+      "peak_time": "2026-07-20 14:36:30",
+      "flare_class": "X-Class",
+      "peak_flux": 1814.3,
+      "duration_mins": 8.8,
+      "hardness_ratio": 0.1368
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1520",
+      "peak_time": "2026-07-20 15:20:00",
+      "flare_class": "M-Class",
+      "peak_flux": 405.2,
+      "duration_mins": 10.0,
+      "hardness_ratio": 0.1132
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1611",
+      "peak_time": "2026-07-20 16:11:00",
+      "flare_class": "B-Class",
+      "peak_flux": 34.9,
+      "duration_mins": 9.5,
+      "hardness_ratio": 0.4009
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1636",
+      "peak_time": "2026-07-20 16:36:30",
+      "flare_class": "B-Class",
+      "peak_flux": 37.3,
+      "duration_mins": 21.7,
+      "hardness_ratio": 0.4108
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1703",
+      "peak_time": "2026-07-20 17:03:30",
+      "flare_class": "C-Class",
+      "peak_flux": 46.9,
+      "duration_mins": 8.7,
+      "hardness_ratio": 0.4615
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1717",
+      "peak_time": "2026-07-20 17:17:10",
+      "flare_class": "C-Class",
+      "peak_flux": 134.7,
+      "duration_mins": 18.7,
+      "hardness_ratio": 0.3716
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1836",
+      "peak_time": "2026-07-20 18:36:50",
+      "flare_class": "B-Class",
+      "peak_flux": 28.4,
+      "duration_mins": 26.5,
+      "hardness_ratio": 0.5636
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-1920",
+      "peak_time": "2026-07-20 19:20:30",
+      "flare_class": "M-Class",
+      "peak_flux": 643.0,
+      "duration_mins": 11.8,
+      "hardness_ratio": 0.1665
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-2055",
+      "peak_time": "2026-07-20 20:55:00",
+      "flare_class": "B-Class",
+      "peak_flux": 22.2,
+      "duration_mins": 14.7,
+      "hardness_ratio": 0.7185
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-2122",
+      "peak_time": "2026-07-20 21:22:20",
+      "flare_class": "B-Class",
+      "peak_flux": 27.4,
+      "duration_mins": 19.5,
+      "hardness_ratio": 0.55
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-2141",
+      "peak_time": "2026-07-20 21:41:10",
+      "flare_class": "C-Class",
+      "peak_flux": 98.9,
+      "duration_mins": 13.0,
+      "hardness_ratio": 0.3129
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-2204",
+      "peak_time": "2026-07-20 22:04:50",
+      "flare_class": "C-Class",
+      "peak_flux": 70.2,
+      "duration_mins": 14.7,
+      "hardness_ratio": 0.2627
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-2225",
+      "peak_time": "2026-07-20 22:25:40",
+      "flare_class": "X-Class",
+      "peak_flux": 2401.9,
+      "duration_mins": 13.2,
+      "hardness_ratio": 0.1629
+    },
+    {
+      "date": "20260720",
+      "event_id": "FLARE-20260720-2323",
+      "peak_time": "2026-07-20 23:23:50",
+      "flare_class": "M-Class",
+      "peak_flux": 415.6,
+      "duration_mins": 15.7,
+      "hardness_ratio": 0.1552
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0019",
+      "peak_time": "2026-07-21 00:19:20",
+      "flare_class": "C-Class",
+      "peak_flux": 79.0,
+      "duration_mins": 17.7,
+      "hardness_ratio": 0.5335
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0051",
+      "peak_time": "2026-07-21 00:51:10",
+      "flare_class": "M-Class",
+      "peak_flux": 344.1,
+      "duration_mins": 17.8,
+      "hardness_ratio": 0.3154
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0128",
+      "peak_time": "2026-07-21 01:28:20",
+      "flare_class": "C-Class",
+      "peak_flux": 84.2,
+      "duration_mins": 18.8,
+      "hardness_ratio": 0.4023
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0203",
+      "peak_time": "2026-07-21 02:03:50",
+      "flare_class": "C-Class",
+      "peak_flux": 76.7,
+      "duration_mins": 21.0,
+      "hardness_ratio": 0.5054
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0231",
+      "peak_time": "2026-07-21 02:31:20",
+      "flare_class": "C-Class",
+      "peak_flux": 47.2,
+      "duration_mins": 34.2,
+      "hardness_ratio": 0.6764
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0404",
+      "peak_time": "2026-07-21 04:04:10",
+      "flare_class": "M-Class",
+      "peak_flux": 189.4,
+      "duration_mins": 22.7,
+      "hardness_ratio": 0.4663
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0443",
+      "peak_time": "2026-07-21 04:43:40",
+      "flare_class": "C-Class",
+      "peak_flux": 57.0,
+      "duration_mins": 14.0,
+      "hardness_ratio": 0.4731
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0458",
+      "peak_time": "2026-07-21 04:58:20",
+      "flare_class": "C-Class",
+      "peak_flux": 47.5,
+      "duration_mins": 33.0,
+      "hardness_ratio": 0.7722
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0522",
+      "peak_time": "2026-07-21 05:22:20",
+      "flare_class": "B-Class",
+      "peak_flux": 28.6,
+      "duration_mins": 33.8,
+      "hardness_ratio": 0.7722
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0700",
+      "peak_time": "2026-07-21 07:00:00",
+      "flare_class": "B-Class",
+      "peak_flux": 17.6,
+      "duration_mins": 10.2,
+      "hardness_ratio": 1.2061
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0730",
+      "peak_time": "2026-07-21 07:30:20",
+      "flare_class": "B-Class",
+      "peak_flux": 17.5,
+      "duration_mins": 23.7,
+      "hardness_ratio": 1.3843
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0835",
+      "peak_time": "2026-07-21 08:35:00",
+      "flare_class": "B-Class",
+      "peak_flux": 33.8,
+      "duration_mins": 22.8,
+      "hardness_ratio": 0.9981
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-0951",
+      "peak_time": "2026-07-21 09:51:40",
+      "flare_class": "M-Class",
+      "peak_flux": 341.4,
+      "duration_mins": 22.5,
+      "hardness_ratio": 0.1836
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1102",
+      "peak_time": "2026-07-21 11:02:20",
+      "flare_class": "C-Class",
+      "peak_flux": 40.0,
+      "duration_mins": 21.3,
+      "hardness_ratio": 0.4654
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1141",
+      "peak_time": "2026-07-21 11:41:30",
+      "flare_class": "M-Class",
+      "peak_flux": 196.8,
+      "duration_mins": 14.7,
+      "hardness_ratio": 0.3292
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1212",
+      "peak_time": "2026-07-21 12:12:20",
+      "flare_class": "C-Class",
+      "peak_flux": 42.7,
+      "duration_mins": 6.8,
+      "hardness_ratio": 0.2609
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1237",
+      "peak_time": "2026-07-21 12:37:40",
+      "flare_class": "C-Class",
+      "peak_flux": 42.1,
+      "duration_mins": 15.8,
+      "hardness_ratio": 0.271
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1310",
+      "peak_time": "2026-07-21 13:10:50",
+      "flare_class": "C-Class",
+      "peak_flux": 45.3,
+      "duration_mins": 16.2,
+      "hardness_ratio": 0.3048
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1344",
+      "peak_time": "2026-07-21 13:44:50",
+      "flare_class": "C-Class",
+      "peak_flux": 53.3,
+      "duration_mins": 23.3,
+      "hardness_ratio": 0.2728
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1414",
+      "peak_time": "2026-07-21 14:14:00",
+      "flare_class": "M-Class",
+      "peak_flux": 220.1,
+      "duration_mins": 9.8,
+      "hardness_ratio": 0.1274
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1438",
+      "peak_time": "2026-07-21 14:38:20",
+      "flare_class": "C-Class",
+      "peak_flux": 105.2,
+      "duration_mins": 12.5,
+      "hardness_ratio": 0.1386
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1455",
+      "peak_time": "2026-07-21 14:55:40",
+      "flare_class": "C-Class",
+      "peak_flux": 122.8,
+      "duration_mins": 19.3,
+      "hardness_ratio": 0.1025
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1515",
+      "peak_time": "2026-07-21 15:15:20",
+      "flare_class": "C-Class",
+      "peak_flux": 99.8,
+      "duration_mins": 12.0,
+      "hardness_ratio": 0.1103
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1533",
+      "peak_time": "2026-07-21 15:33:40",
+      "flare_class": "C-Class",
+      "peak_flux": 132.3,
+      "duration_mins": 8.3,
+      "hardness_ratio": 0.129
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1608",
+      "peak_time": "2026-07-21 16:08:50",
+      "flare_class": "M-Class",
+      "peak_flux": 254.7,
+      "duration_mins": 4.8,
+      "hardness_ratio": 0.133
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1637",
+      "peak_time": "2026-07-21 16:37:50",
+      "flare_class": "C-Class",
+      "peak_flux": 67.5,
+      "duration_mins": 12.8,
+      "hardness_ratio": 0.1824
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1707",
+      "peak_time": "2026-07-21 17:07:20",
+      "flare_class": "C-Class",
+      "peak_flux": 114.0,
+      "duration_mins": 11.7,
+      "hardness_ratio": 0.1588
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1725",
+      "peak_time": "2026-07-21 17:25:50",
+      "flare_class": "X-Class",
+      "peak_flux": 1212.2,
+      "duration_mins": 8.3,
+      "hardness_ratio": 0.0914
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1739",
+      "peak_time": "2026-07-21 17:39:00",
+      "flare_class": "M-Class",
+      "peak_flux": 204.5,
+      "duration_mins": 28.7,
+      "hardness_ratio": 0.1528
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1759",
+      "peak_time": "2026-07-21 17:59:00",
+      "flare_class": "M-Class",
+      "peak_flux": 227.8,
+      "duration_mins": 9.2,
+      "hardness_ratio": 0.078
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1809",
+      "peak_time": "2026-07-21 18:09:30",
+      "flare_class": "M-Class",
+      "peak_flux": 214.6,
+      "duration_mins": 12.5,
+      "hardness_ratio": 0.0782
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1831",
+      "peak_time": "2026-07-21 18:31:20",
+      "flare_class": "M-Class",
+      "peak_flux": 153.7,
+      "duration_mins": 42.7,
+      "hardness_ratio": 0.1783
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1847",
+      "peak_time": "2026-07-21 18:47:10",
+      "flare_class": "M-Class",
+      "peak_flux": 159.9,
+      "duration_mins": 37.7,
+      "hardness_ratio": 0.1598
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1923",
+      "peak_time": "2026-07-21 19:23:50",
+      "flare_class": "C-Class",
+      "peak_flux": 104.7,
+      "duration_mins": 11.5,
+      "hardness_ratio": 0.2301
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-1952",
+      "peak_time": "2026-07-21 19:52:50",
+      "flare_class": "C-Class",
+      "peak_flux": 45.9,
+      "duration_mins": 12.0,
+      "hardness_ratio": 0.4805
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2010",
+      "peak_time": "2026-07-21 20:10:10",
+      "flare_class": "C-Class",
+      "peak_flux": 46.6,
+      "duration_mins": 12.3,
+      "hardness_ratio": 0.2623
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2033",
+      "peak_time": "2026-07-21 20:33:20",
+      "flare_class": "C-Class",
+      "peak_flux": 103.2,
+      "duration_mins": 18.3,
+      "hardness_ratio": 0.1765
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2053",
+      "peak_time": "2026-07-21 20:53:40",
+      "flare_class": "B-Class",
+      "peak_flux": 37.6,
+      "duration_mins": 13.0,
+      "hardness_ratio": 0.3627
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2126",
+      "peak_time": "2026-07-21 21:26:00",
+      "flare_class": "C-Class",
+      "peak_flux": 61.0,
+      "duration_mins": 22.5,
+      "hardness_ratio": 0.3641
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2216",
+      "peak_time": "2026-07-21 22:16:10",
+      "flare_class": "B-Class",
+      "peak_flux": 36.5,
+      "duration_mins": 22.0,
+      "hardness_ratio": 0.4771
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2240",
+      "peak_time": "2026-07-21 22:40:00",
+      "flare_class": "C-Class",
+      "peak_flux": 59.2,
+      "duration_mins": 10.3,
+      "hardness_ratio": 0.4867
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2255",
+      "peak_time": "2026-07-21 22:55:20",
+      "flare_class": "C-Class",
+      "peak_flux": 70.6,
+      "duration_mins": 8.3,
+      "hardness_ratio": 0.2904
+    },
+    {
+      "date": "20260721",
+      "event_id": "FLARE-20260721-2310",
+      "peak_time": "2026-07-21 23:10:10",
+      "flare_class": "C-Class",
+      "peak_flux": 61.2,
+      "duration_mins": 25.7,
+      "hardness_ratio": 0.3258
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0011",
+      "peak_time": "2026-07-22 00:11:20",
+      "flare_class": "C-Class",
+      "peak_flux": 79.2,
+      "duration_mins": 9.8,
+      "hardness_ratio": 0.5458
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0033",
+      "peak_time": "2026-07-22 00:33:40",
+      "flare_class": "B-Class",
+      "peak_flux": 24.2,
+      "duration_mins": 4.0,
+      "hardness_ratio": 1.1864
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0106",
+      "peak_time": "2026-07-22 01:06:20",
+      "flare_class": "C-Class",
+      "peak_flux": 104.0,
+      "duration_mins": 3.8,
+      "hardness_ratio": 0.883
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0225",
+      "peak_time": "2026-07-22 02:25:50",
+      "flare_class": "B-Class",
+      "peak_flux": 29.2,
+      "duration_mins": 19.7,
+      "hardness_ratio": 0.9278
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0323",
+      "peak_time": "2026-07-22 03:23:10",
+      "flare_class": "B-Class",
+      "peak_flux": 31.0,
+      "duration_mins": 14.3,
+      "hardness_ratio": 1.086
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0338",
+      "peak_time": "2026-07-22 03:38:50",
+      "flare_class": "M-Class",
+      "peak_flux": 323.0,
+      "duration_mins": 10.7,
+      "hardness_ratio": 0.5452
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0359",
+      "peak_time": "2026-07-22 03:59:30",
+      "flare_class": "C-Class",
+      "peak_flux": 67.6,
+      "duration_mins": 13.8,
+      "hardness_ratio": 0.5324
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0422",
+      "peak_time": "2026-07-22 04:22:10",
+      "flare_class": "B-Class",
+      "peak_flux": 37.4,
+      "duration_mins": 22.0,
+      "hardness_ratio": 0.6525
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0508",
+      "peak_time": "2026-07-22 05:08:30",
+      "flare_class": "B-Class",
+      "peak_flux": 24.0,
+      "duration_mins": 21.0,
+      "hardness_ratio": 1.1421
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0543",
+      "peak_time": "2026-07-22 05:43:00",
+      "flare_class": "B-Class",
+      "peak_flux": 27.5,
+      "duration_mins": 35.0,
+      "hardness_ratio": 1.0443
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0634",
+      "peak_time": "2026-07-22 06:34:30",
+      "flare_class": "X-Class",
+      "peak_flux": 2592.0,
+      "duration_mins": 5.2,
+      "hardness_ratio": 0.9192
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0659",
+      "peak_time": "2026-07-22 06:59:50",
+      "flare_class": "B-Class",
+      "peak_flux": 38.3,
+      "duration_mins": 39.0,
+      "hardness_ratio": 1.4138
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-0747",
+      "peak_time": "2026-07-22 07:47:30",
+      "flare_class": "C-Class",
+      "peak_flux": 49.1,
+      "duration_mins": 2.3,
+      "hardness_ratio": 0.735
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-1218",
+      "peak_time": "2026-07-22 12:18:30",
+      "flare_class": "C-Class",
+      "peak_flux": 114.3,
+      "duration_mins": 8.7,
+      "hardness_ratio": 0.2981
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-1308",
+      "peak_time": "2026-07-22 13:08:10",
+      "flare_class": "C-Class",
+      "peak_flux": 49.5,
+      "duration_mins": 4.0,
+      "hardness_ratio": 0.3902
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-1506",
+      "peak_time": "2026-07-22 15:06:10",
+      "flare_class": "B-Class",
+      "peak_flux": 21.2,
+      "duration_mins": 9.5,
+      "hardness_ratio": 1.0526
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-1553",
+      "peak_time": "2026-07-22 15:53:30",
+      "flare_class": "C-Class",
+      "peak_flux": 139.3,
+      "duration_mins": 5.8,
+      "hardness_ratio": 0.9268
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-1613",
+      "peak_time": "2026-07-22 16:13:30",
+      "flare_class": "B-Class",
+      "peak_flux": 25.8,
+      "duration_mins": 15.2,
+      "hardness_ratio": 0.576
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-1851",
+      "peak_time": "2026-07-22 18:51:00",
+      "flare_class": "M-Class",
+      "peak_flux": 241.5,
+      "duration_mins": 6.0,
+      "hardness_ratio": 0.4371
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-2156",
+      "peak_time": "2026-07-22 21:56:10",
+      "flare_class": "B-Class",
+      "peak_flux": 29.0,
+      "duration_mins": 28.3,
+      "hardness_ratio": 0.5677
+    },
+    {
+      "date": "20260722",
+      "event_id": "FLARE-20260722-2314",
+      "peak_time": "2026-07-22 23:14:50",
+      "flare_class": "C-Class",
+      "peak_flux": 46.6,
+      "duration_mins": 31.7,
+      "hardness_ratio": 0.4775
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-0141",
+      "peak_time": "2026-07-23 01:41:50",
+      "flare_class": "B-Class",
+      "peak_flux": 22.4,
+      "duration_mins": 29.7,
+      "hardness_ratio": 0.8924
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-0152",
+      "peak_time": "2026-07-23 01:52:10",
+      "flare_class": "B-Class",
+      "peak_flux": 24.3,
+      "duration_mins": 27.0,
+      "hardness_ratio": 0.8924
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-0253",
+      "peak_time": "2026-07-23 02:53:00",
+      "flare_class": "C-Class",
+      "peak_flux": 41.1,
+      "duration_mins": 7.5,
+      "hardness_ratio": 0.6328
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-0326",
+      "peak_time": "2026-07-23 03:26:50",
+      "flare_class": "M-Class",
+      "peak_flux": 260.0,
+      "duration_mins": 4.0,
+      "hardness_ratio": 0.3107
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-0429",
+      "peak_time": "2026-07-23 04:29:00",
+      "flare_class": "C-Class",
+      "peak_flux": 40.2,
+      "duration_mins": 16.7,
+      "hardness_ratio": 0.4977
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-0644",
+      "peak_time": "2026-07-23 06:44:30",
+      "flare_class": "B-Class",
+      "peak_flux": 22.7,
+      "duration_mins": 12.3,
+      "hardness_ratio": 0.9004
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-1002",
+      "peak_time": "2026-07-23 10:02:10",
+      "flare_class": "B-Class",
+      "peak_flux": 29.0,
+      "duration_mins": 8.3,
+      "hardness_ratio": 0.9342
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-1512",
+      "peak_time": "2026-07-23 15:12:50",
+      "flare_class": "C-Class",
+      "peak_flux": 76.0,
+      "duration_mins": 43.0,
+      "hardness_ratio": 0.3436
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-1605",
+      "peak_time": "2026-07-23 16:05:30",
+      "flare_class": "B-Class",
+      "peak_flux": 25.1,
+      "duration_mins": 9.2,
+      "hardness_ratio": 0.533
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-1651",
+      "peak_time": "2026-07-23 16:51:20",
+      "flare_class": "C-Class",
+      "peak_flux": 54.7,
+      "duration_mins": 8.0,
+      "hardness_ratio": 0.5163
+    },
+    {
+      "date": "20260723",
+      "event_id": "FLARE-20260723-2126",
+      "peak_time": "2026-07-23 21:26:10",
+      "flare_class": "B-Class",
+      "peak_flux": 27.1,
+      "duration_mins": 32.5,
+      "hardness_ratio": 0.662
+    },
+    {
+      "date": "20260724",
+      "event_id": "FLARE-20260724-2103",
+      "peak_time": "2026-07-24 21:03:50",
+      "flare_class": "C-Class",
+      "peak_flux": 72.6,
+      "duration_mins": 19.7,
+      "hardness_ratio": 0.3171
+    },
+    {
+      "date": "20260724",
+      "event_id": "FLARE-20260724-2157",
+      "peak_time": "2026-07-24 21:57:00",
+      "flare_class": "C-Class",
+      "peak_flux": 96.9,
+      "duration_mins": 34.5,
+      "hardness_ratio": 0.2796
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-0140",
+      "peak_time": "2026-07-25 01:40:30",
+      "flare_class": "C-Class",
+      "peak_flux": 47.3,
+      "duration_mins": 14.7,
+      "hardness_ratio": 0.5786
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-0330",
+      "peak_time": "2026-07-25 03:30:20",
+      "flare_class": "B-Class",
+      "peak_flux": 22.7,
+      "duration_mins": 13.5,
+      "hardness_ratio": 0.4652
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-0352",
+      "peak_time": "2026-07-25 03:52:00",
+      "flare_class": "C-Class",
+      "peak_flux": 51.0,
+      "duration_mins": 26.2,
+      "hardness_ratio": 0.3723
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-0543",
+      "peak_time": "2026-07-25 05:43:40",
+      "flare_class": "C-Class",
+      "peak_flux": 41.4,
+      "duration_mins": 14.5,
+      "hardness_ratio": 0.5084
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-1140",
+      "peak_time": "2026-07-25 11:40:00",
+      "flare_class": "B-Class",
+      "peak_flux": 26.6,
+      "duration_mins": 25.7,
+      "hardness_ratio": 0.6102
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-2057",
+      "peak_time": "2026-07-25 20:57:30",
+      "flare_class": "B-Class",
+      "peak_flux": 20.0,
+      "duration_mins": 10.5,
+      "hardness_ratio": 1.0318
+    },
+    {
+      "date": "20260725",
+      "event_id": "FLARE-20260725-2134",
+      "peak_time": "2026-07-25 21:34:20",
+      "flare_class": "B-Class",
+      "peak_flux": 37.0,
+      "duration_mins": 23.8,
+      "hardness_ratio": 0.9103
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0309",
+      "peak_time": "2026-07-26 03:09:50",
+      "flare_class": "B-Class",
+      "peak_flux": 27.5,
+      "duration_mins": 17.5,
+      "hardness_ratio": 1.0783
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0326",
+      "peak_time": "2026-07-26 03:26:40",
+      "flare_class": "B-Class",
+      "peak_flux": 27.8,
+      "duration_mins": 33.7,
+      "hardness_ratio": 1.3398
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0441",
+      "peak_time": "2026-07-26 04:41:00",
+      "flare_class": "B-Class",
+      "peak_flux": 32.9,
+      "duration_mins": 23.7,
+      "hardness_ratio": 0.5324
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0503",
+      "peak_time": "2026-07-26 05:03:20",
+      "flare_class": "B-Class",
+      "peak_flux": 26.9,
+      "duration_mins": 16.5,
+      "hardness_ratio": 0.7279
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0525",
+      "peak_time": "2026-07-26 05:25:30",
+      "flare_class": "C-Class",
+      "peak_flux": 49.3,
+      "duration_mins": 8.3,
+      "hardness_ratio": 0.9167
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0619",
+      "peak_time": "2026-07-26 06:19:30",
+      "flare_class": "B-Class",
+      "peak_flux": 26.6,
+      "duration_mins": 11.8,
+      "hardness_ratio": 0.6721
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0631",
+      "peak_time": "2026-07-26 06:31:40",
+      "flare_class": "B-Class",
+      "peak_flux": 21.7,
+      "duration_mins": 12.7,
+      "hardness_ratio": 0.7637
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-0731",
+      "peak_time": "2026-07-26 07:31:00",
+      "flare_class": "M-Class",
+      "peak_flux": 166.8,
+      "duration_mins": 4.3,
+      "hardness_ratio": 0.5367
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-1014",
+      "peak_time": "2026-07-26 10:14:30",
+      "flare_class": "C-Class",
+      "peak_flux": 48.4,
+      "duration_mins": 11.0,
+      "hardness_ratio": 0.5676
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-1357",
+      "peak_time": "2026-07-26 13:57:30",
+      "flare_class": "B-Class",
+      "peak_flux": 30.1,
+      "duration_mins": 24.5,
+      "hardness_ratio": 0.453
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-1528",
+      "peak_time": "2026-07-26 15:28:00",
+      "flare_class": "X-Class",
+      "peak_flux": 2039.6,
+      "duration_mins": 9.2,
+      "hardness_ratio": 0.5304
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-1810",
+      "peak_time": "2026-07-26 18:10:40",
+      "flare_class": "B-Class",
+      "peak_flux": 21.7,
+      "duration_mins": 12.7,
+      "hardness_ratio": 0.6717
+    },
+    {
+      "date": "20260726",
+      "event_id": "FLARE-20260726-2009",
+      "peak_time": "2026-07-26 20:09:00",
+      "flare_class": "B-Class",
+      "peak_flux": 29.3,
+      "duration_mins": 25.7,
+      "hardness_ratio": 0.6247
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-0049",
+      "peak_time": "2026-07-27 00:49:40",
+      "flare_class": "B-Class",
+      "peak_flux": 25.4,
+      "duration_mins": 41.3,
+      "hardness_ratio": 0.4854
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-0242",
+      "peak_time": "2026-07-27 02:42:10",
+      "flare_class": "M-Class",
+      "peak_flux": 538.7,
+      "duration_mins": 13.5,
+      "hardness_ratio": 0.2449
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-1342",
+      "peak_time": "2026-07-27 13:42:50",
+      "flare_class": "B-Class",
+      "peak_flux": 31.2,
+      "duration_mins": 16.0,
+      "hardness_ratio": 0.5962
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-1508",
+      "peak_time": "2026-07-27 15:08:40",
+      "flare_class": "B-Class",
+      "peak_flux": 21.6,
+      "duration_mins": 15.3,
+      "hardness_ratio": 0.5619
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-1725",
+      "peak_time": "2026-07-27 17:25:00",
+      "flare_class": "C-Class",
+      "peak_flux": 80.2,
+      "duration_mins": 13.2,
+      "hardness_ratio": 0.326
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-1947",
+      "peak_time": "2026-07-27 19:47:50",
+      "flare_class": "C-Class",
+      "peak_flux": 123.4,
+      "duration_mins": 12.5,
+      "hardness_ratio": 0.2596
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-2244",
+      "peak_time": "2026-07-27 22:44:00",
+      "flare_class": "C-Class",
+      "peak_flux": 96.6,
+      "duration_mins": 10.0,
+      "hardness_ratio": 0.3148
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-2258",
+      "peak_time": "2026-07-27 22:58:50",
+      "flare_class": "C-Class",
+      "peak_flux": 112.9,
+      "duration_mins": 15.5,
+      "hardness_ratio": 0.2454
+    },
+    {
+      "date": "20260727",
+      "event_id": "FLARE-20260727-2326",
+      "peak_time": "2026-07-27 23:26:30",
+      "flare_class": "C-Class",
+      "peak_flux": 45.3,
+      "duration_mins": 26.3,
+      "hardness_ratio": 0.3905
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-0043",
+      "peak_time": "2026-07-28 00:43:50",
+      "flare_class": "B-Class",
+      "peak_flux": 38.1,
+      "duration_mins": 39.0,
+      "hardness_ratio": 0.5658
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-0214",
+      "peak_time": "2026-07-28 02:14:50",
+      "flare_class": "B-Class",
+      "peak_flux": 35.9,
+      "duration_mins": 11.8,
+      "hardness_ratio": 0.5039
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-0318",
+      "peak_time": "2026-07-28 03:18:50",
+      "flare_class": "M-Class",
+      "peak_flux": 221.6,
+      "duration_mins": 8.3,
+      "hardness_ratio": 0.2678
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-0706",
+      "peak_time": "2026-07-28 07:06:10",
+      "flare_class": "B-Class",
+      "peak_flux": 18.3,
+      "duration_mins": 20.2,
+      "hardness_ratio": 0.8115
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-1120",
+      "peak_time": "2026-07-28 11:20:20",
+      "flare_class": "B-Class",
+      "peak_flux": 25.3,
+      "duration_mins": 7.5,
+      "hardness_ratio": 0.6829
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-1747",
+      "peak_time": "2026-07-28 17:47:10",
+      "flare_class": "B-Class",
+      "peak_flux": 38.3,
+      "duration_mins": 14.3,
+      "hardness_ratio": 1.2763
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-2308",
+      "peak_time": "2026-07-28 23:08:20",
+      "flare_class": "B-Class",
+      "peak_flux": 19.2,
+      "duration_mins": 23.7,
+      "hardness_ratio": 1.1034
+    },
+    {
+      "date": "20260728",
+      "event_id": "FLARE-20260728-2345",
+      "peak_time": "2026-07-28 23:45:10",
+      "flare_class": "B-Class",
+      "peak_flux": 39.0,
+      "duration_mins": 17.2,
+      "hardness_ratio": 0.8514
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0022",
+      "peak_time": "2026-07-29 00:22:20",
+      "flare_class": "B-Class",
+      "peak_flux": 29.8,
+      "duration_mins": 4.7,
+      "hardness_ratio": 0.2824
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0039",
+      "peak_time": "2026-07-29 00:39:10",
+      "flare_class": "B-Class",
+      "peak_flux": 24.9,
+      "duration_mins": 26.5,
+      "hardness_ratio": 0.479
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0205",
+      "peak_time": "2026-07-29 02:05:00",
+      "flare_class": "C-Class",
+      "peak_flux": 40.9,
+      "duration_mins": 18.8,
+      "hardness_ratio": 0.3162
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0438",
+      "peak_time": "2026-07-29 04:38:20",
+      "flare_class": "B-Class",
+      "peak_flux": 22.5,
+      "duration_mins": 9.3,
+      "hardness_ratio": 0.5161
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0552",
+      "peak_time": "2026-07-29 05:52:00",
+      "flare_class": "C-Class",
+      "peak_flux": 45.8,
+      "duration_mins": 21.2,
+      "hardness_ratio": 0.3692
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0608",
+      "peak_time": "2026-07-29 06:08:30",
+      "flare_class": "C-Class",
+      "peak_flux": 43.9,
+      "duration_mins": 36.0,
+      "hardness_ratio": 0.2714
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-0954",
+      "peak_time": "2026-07-29 09:54:20",
+      "flare_class": "B-Class",
+      "peak_flux": 34.4,
+      "duration_mins": 53.0,
+      "hardness_ratio": 0.3539
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-1140",
+      "peak_time": "2026-07-29 11:40:50",
+      "flare_class": "B-Class",
+      "peak_flux": 22.1,
+      "duration_mins": 34.7,
+      "hardness_ratio": 0.4824
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-1250",
+      "peak_time": "2026-07-29 12:50:00",
+      "flare_class": "B-Class",
+      "peak_flux": 31.2,
+      "duration_mins": 18.8,
+      "hardness_ratio": 0.407
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-1618",
+      "peak_time": "2026-07-29 16:18:50",
+      "flare_class": "B-Class",
+      "peak_flux": 36.6,
+      "duration_mins": 13.5,
+      "hardness_ratio": 0.6981
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-1724",
+      "peak_time": "2026-07-29 17:24:00",
+      "flare_class": "B-Class",
+      "peak_flux": 21.3,
+      "duration_mins": 14.2,
+      "hardness_ratio": 0.6102
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-1929",
+      "peak_time": "2026-07-29 19:29:50",
+      "flare_class": "B-Class",
+      "peak_flux": 18.5,
+      "duration_mins": 16.5,
+      "hardness_ratio": 0.5281
+    },
+    {
+      "date": "20260729",
+      "event_id": "FLARE-20260729-2029",
+      "peak_time": "2026-07-29 20:29:20",
+      "flare_class": "B-Class",
+      "peak_flux": 25.3,
+      "duration_mins": 34.8,
+      "hardness_ratio": 0.4528
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-0601",
+      "peak_time": "2026-07-30 06:01:30",
+      "flare_class": "C-Class",
+      "peak_flux": 111.7,
+      "duration_mins": 35.8,
+      "hardness_ratio": 0.9263
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1519",
+      "peak_time": "2026-07-30 15:19:30",
+      "flare_class": "B-Class",
+      "peak_flux": 22.0,
+      "duration_mins": 19.2,
+      "hardness_ratio": 0.5384
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1625",
+      "peak_time": "2026-07-30 16:25:50",
+      "flare_class": "M-Class",
+      "peak_flux": 495.1,
+      "duration_mins": 140.5,
+      "hardness_ratio": 0.1512
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1648",
+      "peak_time": "2026-07-30 16:48:40",
+      "flare_class": "X-Class",
+      "peak_flux": 882.8,
+      "duration_mins": 134.3,
+      "hardness_ratio": 0.1246
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1715",
+      "peak_time": "2026-07-30 17:15:50",
+      "flare_class": "X-Class",
+      "peak_flux": 895.6,
+      "duration_mins": 161.2,
+      "hardness_ratio": 0.1512
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1740",
+      "peak_time": "2026-07-30 17:40:00",
+      "flare_class": "M-Class",
+      "peak_flux": 623.7,
+      "duration_mins": 152.5,
+      "hardness_ratio": 0.1512
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1854",
+      "peak_time": "2026-07-30 18:54:30",
+      "flare_class": "M-Class",
+      "peak_flux": 214.2,
+      "duration_mins": 176.8,
+      "hardness_ratio": 0.2719
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-1910",
+      "peak_time": "2026-07-30 19:10:50",
+      "flare_class": "M-Class",
+      "peak_flux": 162.6,
+      "duration_mins": 164.5,
+      "hardness_ratio": 0.2831
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-2001",
+      "peak_time": "2026-07-30 20:01:30",
+      "flare_class": "C-Class",
+      "peak_flux": 92.8,
+      "duration_mins": 151.0,
+      "hardness_ratio": 0.3603
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-2022",
+      "peak_time": "2026-07-30 20:22:00",
+      "flare_class": "C-Class",
+      "peak_flux": 68.6,
+      "duration_mins": 140.2,
+      "hardness_ratio": 0.4115
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-2118",
+      "peak_time": "2026-07-30 21:18:50",
+      "flare_class": "C-Class",
+      "peak_flux": 47.6,
+      "duration_mins": 12.2,
+      "hardness_ratio": 0.4613
+    },
+    {
+      "date": "20260730",
+      "event_id": "FLARE-20260730-2221",
+      "peak_time": "2026-07-30 22:21:50",
+      "flare_class": "C-Class",
+      "peak_flux": 60.4,
+      "duration_mins": 19.0,
+      "hardness_ratio": 0.4137
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0129",
+      "peak_time": "2026-07-31 01:29:00",
+      "flare_class": "B-Class",
+      "peak_flux": 35.9,
+      "duration_mins": 17.0,
+      "hardness_ratio": 0.5413
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0219",
+      "peak_time": "2026-07-31 02:19:50",
+      "flare_class": "B-Class",
+      "peak_flux": 28.6,
+      "duration_mins": 25.2,
+      "hardness_ratio": 0.6376
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0239",
+      "peak_time": "2026-07-31 02:39:10",
+      "flare_class": "C-Class",
+      "peak_flux": 50.7,
+      "duration_mins": 15.3,
+      "hardness_ratio": 0.3082
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0315",
+      "peak_time": "2026-07-31 03:15:20",
+      "flare_class": "C-Class",
+      "peak_flux": 82.7,
+      "duration_mins": 27.0,
+      "hardness_ratio": 0.2894
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0353",
+      "peak_time": "2026-07-31 03:53:00",
+      "flare_class": "C-Class",
+      "peak_flux": 65.3,
+      "duration_mins": 28.0,
+      "hardness_ratio": 0.3298
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0454",
+      "peak_time": "2026-07-31 04:54:00",
+      "flare_class": "C-Class",
+      "peak_flux": 54.7,
+      "duration_mins": 31.7,
+      "hardness_ratio": 0.4102
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0610",
+      "peak_time": "2026-07-31 06:10:40",
+      "flare_class": "C-Class",
+      "peak_flux": 55.3,
+      "duration_mins": 23.3,
+      "hardness_ratio": 0.4131
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0647",
+      "peak_time": "2026-07-31 06:47:40",
+      "flare_class": "C-Class",
+      "peak_flux": 57.6,
+      "duration_mins": 19.8,
+      "hardness_ratio": 0.4823
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0736",
+      "peak_time": "2026-07-31 07:36:00",
+      "flare_class": "B-Class",
+      "peak_flux": 22.1,
+      "duration_mins": 32.7,
+      "hardness_ratio": 0.9505
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-0833",
+      "peak_time": "2026-07-31 08:33:40",
+      "flare_class": "B-Class",
+      "peak_flux": 30.4,
+      "duration_mins": 14.2,
+      "hardness_ratio": 0.5965
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-1010",
+      "peak_time": "2026-07-31 10:10:20",
+      "flare_class": "B-Class",
+      "peak_flux": 25.7,
+      "duration_mins": 19.2,
+      "hardness_ratio": 0.774
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-1118",
+      "peak_time": "2026-07-31 11:18:20",
+      "flare_class": "C-Class",
+      "peak_flux": 63.2,
+      "duration_mins": 17.0,
+      "hardness_ratio": 0.6635
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-1147",
+      "peak_time": "2026-07-31 11:47:20",
+      "flare_class": "M-Class",
+      "peak_flux": 157.3,
+      "duration_mins": 21.3,
+      "hardness_ratio": 0.8089
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-1356",
+      "peak_time": "2026-07-31 13:56:30",
+      "flare_class": "C-Class",
+      "peak_flux": 41.4,
+      "duration_mins": 16.8,
+      "hardness_ratio": 0.739
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-1812",
+      "peak_time": "2026-07-31 18:12:00",
+      "flare_class": "B-Class",
+      "peak_flux": 38.9,
+      "duration_mins": 17.7,
+      "hardness_ratio": 0.8154
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-1946",
+      "peak_time": "2026-07-31 19:46:30",
+      "flare_class": "B-Class",
+      "peak_flux": 36.6,
+      "duration_mins": 55.5,
+      "hardness_ratio": 1.1867
+    },
+    {
+      "date": "20260731",
+      "event_id": "FLARE-20260731-2012",
+      "peak_time": "2026-07-31 20:12:50",
+      "flare_class": "B-Class",
+      "peak_flux": 38.2,
+      "duration_mins": 12.5,
+      "hardness_ratio": 0.5704
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-0226",
+      "peak_time": "2026-08-01 02:26:10",
+      "flare_class": "Quiet/Micro",
+      "peak_flux": 14.7,
+      "duration_mins": 7.3,
+      "hardness_ratio": 1.2539
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-0548",
+      "peak_time": "2026-08-01 05:48:30",
+      "flare_class": "B-Class",
+      "peak_flux": 16.5,
+      "duration_mins": 7.3,
+      "hardness_ratio": 0.8848
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-1330",
+      "peak_time": "2026-08-01 13:30:30",
+      "flare_class": "B-Class",
+      "peak_flux": 16.3,
+      "duration_mins": 8.2,
+      "hardness_ratio": 1.221
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-1630",
+      "peak_time": "2026-08-01 16:30:40",
+      "flare_class": "Quiet/Micro",
+      "peak_flux": 14.9,
+      "duration_mins": 13.2,
+      "hardness_ratio": 0.7361
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-2011",
+      "peak_time": "2026-08-01 20:11:00",
+      "flare_class": "C-Class",
+      "peak_flux": 54.4,
+      "duration_mins": 13.0,
+      "hardness_ratio": 0.4514
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-2026",
+      "peak_time": "2026-08-01 20:26:30",
+      "flare_class": "C-Class",
+      "peak_flux": 45.2,
+      "duration_mins": 34.0,
+      "hardness_ratio": 0.6093
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-2113",
+      "peak_time": "2026-08-01 21:13:00",
+      "flare_class": "B-Class",
+      "peak_flux": 27.9,
+      "duration_mins": 7.5,
+      "hardness_ratio": 0.6667
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-2140",
+      "peak_time": "2026-08-01 21:40:10",
+      "flare_class": "B-Class",
+      "peak_flux": 17.7,
+      "duration_mins": 14.8,
+      "hardness_ratio": 0.7
+    },
+    {
+      "date": "20260801",
+      "event_id": "FLARE-20260801-2239",
+      "peak_time": "2026-08-01 22:39:00",
+      "flare_class": "C-Class",
+      "peak_flux": 74.2,
+      "duration_mins": 18.8,
+      "hardness_ratio": 0.443
+    },
+    {
+      "date": "20260802",
+      "event_id": "FLARE-20260802-0032",
+      "peak_time": "2026-08-02 00:32:10",
+      "flare_class": "M-Class",
+      "peak_flux": 152.4,
+      "duration_mins": 13.8,
+      "hardness_ratio": 0.4685
+    },
+    {
+      "date": "20260802",
+      "event_id": "FLARE-20260802-0201",
+      "peak_time": "2026-08-02 02:01:50",
+      "flare_class": "B-Class",
+      "peak_flux": 38.7,
+      "duration_mins": 16.8,
+      "hardness_ratio": 1.2982
+    },
+    {
+      "date": "20260802",
+      "event_id": "FLARE-20260802-0535",
+      "peak_time": "2026-08-02 05:35:00",
+      "flare_class": "M-Class",
+      "peak_flux": 278.7,
+      "duration_mins": 11.7,
+      "hardness_ratio": 0.3455
+    },
+    {
+      "date": "20260802",
+      "event_id": "FLARE-20260802-0605",
+      "peak_time": "2026-08-02 06:05:10",
+      "flare_class": "B-Class",
+      "peak_flux": 36.6,
+      "duration_mins": 73.7,
+      "hardness_ratio": 1.5051
+    },
+    {
+      "date": "20260802",
+      "event_id": "FLARE-20260802-1458",
+      "peak_time": "2026-08-02 14:58:20",
+      "flare_class": "B-Class",
+      "peak_flux": 25.6,
+      "duration_mins": 25.8,
+      "hardness_ratio": 0.9833
+    },
+    {
+      "date": "20260802",
+      "event_id": "FLARE-20260802-1650",
+      "peak_time": "2026-08-02 16:50:50",
+      "flare_class": "Quiet/Micro",
+      "peak_flux": 14.1,
+      "duration_mins": 12.8,
+      "hardness_ratio": 1.1329
+    },
+    {
+      "date": "20260803",
+      "event_id": "FLARE-20260803-0922",
+      "peak_time": "2026-08-03 09:22:10",
+      "flare_class": "B-Class",
+      "peak_flux": 20.1,
+      "duration_mins": 21.8,
+      "hardness_ratio": 0.6259
+    },
+    {
+      "date": "20260803",
+      "event_id": "FLARE-20260803-1133",
+      "peak_time": "2026-08-03 11:33:10",
+      "flare_class": "B-Class",
+      "peak_flux": 28.7,
+      "duration_mins": 13.7,
+      "hardness_ratio": 0.6681
+    },
+    {
+      "date": "20260803",
+      "event_id": "FLARE-20260803-1749",
+      "peak_time": "2026-08-03 17:49:10",
+      "flare_class": "B-Class",
+      "peak_flux": 16.0,
+      "duration_mins": 10.0,
+      "hardness_ratio": 0.7791
+    },
+    {
+      "date": "20260804",
+      "event_id": "FLARE-20260804-0018",
+      "peak_time": "2026-08-04 00:18:40",
+      "flare_class": "Quiet/Micro",
+      "peak_flux": 10.4,
+      "duration_mins": 6.5,
+      "hardness_ratio": 0.846
+    },
+    {
+      "date": "20260804",
+      "event_id": "FLARE-20260804-1157",
+      "peak_time": "2026-08-04 11:57:40",
+      "flare_class": "B-Class",
+      "peak_flux": 38.0,
+      "duration_mins": 7.8,
+      "hardness_ratio": 0.9863
+    },
+    {
+      "date": "20260804",
+      "event_id": "FLARE-20260804-1408",
+      "peak_time": "2026-08-04 14:08:30",
+      "flare_class": "B-Class",
+      "peak_flux": 22.4,
+      "duration_mins": 19.5,
+      "hardness_ratio": 1.0996
+    },
+    {
+      "date": "20260804",
+      "event_id": "FLARE-20260804-1534",
+      "peak_time": "2026-08-04 15:34:20",
+      "flare_class": "B-Class",
+      "peak_flux": 23.7,
+      "duration_mins": 6.2,
+      "hardness_ratio": 0.9671
+    },
+    {
+      "date": "20260804",
+      "event_id": "FLARE-20260804-1612",
+      "peak_time": "2026-08-04 16:12:50",
+      "flare_class": "B-Class",
+      "peak_flux": 18.8,
+      "duration_mins": 12.2,
+      "hardness_ratio": 1.4396
+    },
+    {
+      "date": "20260804",
+      "event_id": "FLARE-20260804-1819",
+      "peak_time": "2026-08-04 18:19:00",
+      "flare_class": "B-Class",
+      "peak_flux": 21.4,
+      "duration_mins": 13.0,
+      "hardness_ratio": 1.2716
+    },
+    {
+      "date": "20260805",
+      "event_id": "FLARE-20260805-0613",
+      "peak_time": "2026-08-05 06:13:00",
+      "flare_class": "B-Class",
+      "peak_flux": 33.7,
+      "duration_mins": 41.7,
+      "hardness_ratio": 1.0045
+    },
+    {
+      "date": "20260805",
+      "event_id": "FLARE-20260805-1530",
+      "peak_time": "2026-08-05 15:30:40",
+      "flare_class": "B-Class",
+      "peak_flux": 18.3,
+      "duration_mins": 10.7,
+      "hardness_ratio": 1.1323
+    },
+    {
+      "date": "20260806",
+      "event_id": "FLARE-20260806-1234",
+      "peak_time": "2026-08-06 12:34:00",
+      "flare_class": "Quiet/Micro",
+      "peak_flux": 13.7,
+      "duration_mins": 21.2,
+      "hardness_ratio": 1.7125
+    },
+    {
+      "date": "20260806",
+      "event_id": "FLARE-20260806-1928",
+      "peak_time": "2026-08-06 19:28:50",
+      "flare_class": "B-Class",
+      "peak_flux": 21.7,
+      "duration_mins": 11.2,
+      "hardness_ratio": 1.358
+    }
+  ],
+  "metrics": {
+    "train_samples": 172799,
+    "train_positive_1h": 47767,
+    "roc_auc_1h": 0.9711
+  },
+  "features": [
+    "solexs_counts",
+    "solexs_smooth",
+    "solexs_baseline",
+    "solexs_excess",
+    "solexs_mean_5m",
+    "solexs_std_5m",
+    "solexs_rise_rate_15m",
+    "hel1os_czt_total",
+    "hel1os_smooth",
+    "hel1os_baseline",
+    "hel1os_excess",
+    "hel1os_mean_5m",
+    "hel1os_std_5m",
+    "hardness_ratio",
+    "hardness_ratio_excess",
+    "d_solexs_dt",
+    "d2_solexs_dt2",
+    "d_hel1os_dt",
+    "hel1os_10_20",
+    "hel1os_20_40",
+    "hel1os_40_60",
+    "hel1os_60_80",
+    "hel1os_80_150"
+  ]
+}
