@@ -42,10 +42,10 @@ st.markdown(f"""
     
     /* Frosted Glassmorphism Containers */
     .glass-card {{
-        background: rgba(18, 22, 34, 0.72);
+        background: rgba(18, 22, 34, 0.75);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 107, 0, 0.22);
+        border: 1px solid rgba(255, 107, 0, 0.25);
         border-radius: 16px;
         padding: 20px 24px;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -53,8 +53,8 @@ st.markdown(f"""
     }}
     .glass-card:hover {{
         transform: translateY(-2px);
-        box-shadow: 0 12px 40px 0 rgba(255, 107, 0, 0.18);
-        border-color: rgba(255, 107, 0, 0.45);
+        box-shadow: 0 12px 40px 0 rgba(255, 107, 0, 0.22);
+        border-color: rgba(255, 107, 0, 0.5);
     }}
     
     /* Neon Metric Badges */
@@ -100,7 +100,7 @@ st.markdown(f"""
     /* Navigation Tabs */
     .stTabs [data-baseweb="tab-list"] {{
         gap: 12px;
-        background: rgba(13, 17, 26, 0.6);
+        background: rgba(13, 17, 26, 0.7);
         padding: 8px;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -121,7 +121,7 @@ st.markdown(f"""
 
     /* Sidebar Glassmorphism & High-Contrast White Typography */
     section[data-testid="stSidebar"] {{
-        background: rgba(10, 14, 22, 0.92) !important;
+        background: rgba(10, 14, 22, 0.94) !important;
         backdrop-filter: blur(20px) !important;
         border-right: 1px solid rgba(255, 107, 0, 0.25) !important;
         color: #ffffff !important;
@@ -157,7 +157,6 @@ st.markdown(f"""
         color: #ffffff !important;
         font-weight: 700 !important;
         font-size: 0.95rem !important;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
     }}
     div[data-testid="stFileUploader"] section {{
         background: rgba(26, 32, 50, 0.95) !important;
@@ -168,8 +167,7 @@ st.markdown(f"""
     div[data-testid="stFileUploader"] section *,
     div[data-testid="stFileUploaderDropzoneInstructions"] *,
     div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] p,
-    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] span,
-    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] small {{
+    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] span {{
         color: #ffffff !important;
         font-weight: 600 !important;
     }}
@@ -219,6 +217,7 @@ st.markdown(f"""
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'solar_flare_ai_model.pkl')
 SUMMARY_PATH = os.path.join(os.path.dirname(__file__), 'models', 'training_summary.json')
+SAMPLE_DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'sample_mission_day.csv')
 DEFAULT_DATA_DIR = r'C:\Users\sarth\OneDrive\Pictures\New folder'
 
 @st.cache_resource
@@ -234,21 +233,44 @@ def get_training_summary():
             return json.load(f)
     return None
 
+@st.cache_data
+def load_sample_day():
+    if os.path.exists(SAMPLE_DATA_PATH):
+        df_sample = pd.read_csv(SAMPLE_DATA_PATH)
+        df_sample['timestamp'] = pd.to_datetime(df_sample['timestamp'])
+        return df_sample
+    return None
+
 ai_model = get_ai_model()
 summary_data = get_training_summary()
+sample_df = load_sample_day()
 
 # --- SIDEBAR CONTROLS ---
 with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Indian_Space_Research_Organisation_Logo.svg/1200px-Indian_Space_Research_Organisation_Logo.svg.png", width=65)
-    st.markdown("<h2 style='margin-top:0; color:#ff9100;'>Aditya-L1 AI Studio</h2>", unsafe_allow_html=True)
-    st.caption("ISRO Lagrange Point L1 • Deep Space X-Ray Suite")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 2.2rem;">🛰️</span>
+        <div>
+            <h3 style="margin:0; color:#ff9100; font-weight:800; font-size:1.3rem;">Aditya-L1 Studio</h3>
+            <span style="font-size:0.78rem; color:#94a3b8;">ISRO Sun-Earth L1 Observatory</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     st.markdown("---")
     
-    st.subheader("🛰️ Telemetry Ingestion")
+    st.subheader("🛰️ Telemetry Input Mode")
+    
+    # Check if local folder exists, else offer Demo Day & Upload
+    local_dir_exists = os.path.exists(DEFAULT_DATA_DIR)
+    
+    available_modes = ["🌟 Explore Live Demo Day (Instant)", "📁 Upload 3 PRADAN Zip Files"]
+    if local_dir_exists:
+        available_modes.append("📅 Local 20-Day Archive (PC)")
+        
     input_mode = st.radio(
-        "Workflow Mode",
-        ["📁 Upload 3 PRADAN Zip Files", "📅 20-Day Mission Archive"],
-        index=1
+        "Select Telemetry Source:",
+        available_modes,
+        index=0
     )
     
     uploaded_slx = None
@@ -261,18 +283,17 @@ with st.sidebar:
         uploaded_slx = st.file_uploader("1. SoLEXS 24h Zip (AL1_SLX_...zip)", type=['zip'], key="slx_up")
         uploaded_hls1 = st.file_uploader("2. HEL1OS 12h Part 1 (00-12 UTC)", type=['zip'], key="hls1_up")
         uploaded_hls2 = st.file_uploader("3. HEL1OS 12h Part 2 (12-24 UTC)", type=['zip'], key="hls2_up")
+    elif input_mode == "📅 Local 20-Day Archive (PC)":
+        all_files = os.listdir(DEFAULT_DATA_DIR)
+        slx_dates = sorted(list(set([f.split('_')[3] for f in all_files if f.startswith('AL1_SLX') and '_' in f])))
+        selected_date = st.selectbox("Select Mission Observation Date:", slx_dates, index=len(slx_dates)-3)
+        st.caption(f"📁 Local archive: `{DEFAULT_DATA_DIR}`")
     else:
-        if os.path.exists(DEFAULT_DATA_DIR):
-            all_files = os.listdir(DEFAULT_DATA_DIR)
-            slx_dates = sorted(list(set([f.split('_')[3] for f in all_files if f.startswith('AL1_SLX') and '_' in f])))
-            selected_date = st.selectbox("Mission Observation Date:", slx_dates, index=len(slx_dates)-3)
-            st.caption(f"📁 Local archive: `{DEFAULT_DATA_DIR}`")
-        else:
-            st.error(f"Archive folder not found at `{DEFAULT_DATA_DIR}`")
+        st.success("✅ **Live Demo Day Active (2026-07-18)**: Pre-synchronized Aditya-L1 dual X-ray telemetry loaded.")
             
     st.markdown("---")
     st.subheader("⚡ Physics & AI Controls")
-    resample_rate = st.selectbox("Cadence Resolution", ["10s (High-Def)", "30s (Smooth)", "60s (Macro)"], index=0)
+    resample_rate = st.selectbox("Cadence Resolution", ["30s (Smooth / Recommended)", "10s (High-Def)", "60s (Macro)"], index=0)
     resample_freq = resample_rate.split()[0]
     dt_sec = int(resample_freq.replace('s', ''))
     
@@ -288,15 +309,13 @@ with st.sidebar:
 
 # --- HEADER HERO SECTION ---
 st.markdown("""
-<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-    <div>
-        <h1 style="margin: 0; font-size: 2.4rem; font-weight: 800; background: linear-gradient(90deg, #ff9100 0%, #ff1744 50%, #d500f9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            ☀️ Aditya-L1 Solar Flare AI Studio
-        </h1>
-        <p style="margin: 6px 0 0 0; color: #94a3b8; font-size: 1.05rem;">
-            Real-Time Nowcasting, Spectral Hardness Diagnostics & 1-2h Predictive Horizon for ISRO's SoLEXS & HEL1OS Payloads
-        </p>
-    </div>
+<div style="margin-bottom: 20px;">
+    <h1 style="margin: 0; font-size: 2.3rem; font-weight: 800; background: linear-gradient(90deg, #ff9100 0%, #ff1744 50%, #d500f9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        ☀️ Aditya-L1 Solar Flare AI Studio
+    </h1>
+    <p style="margin: 6px 0 0 0; color: #94a3b8; font-size: 1.02rem;">
+        Real-Time Nowcasting, Spectral Hardness Diagnostics & 1-2h Predictive Horizon for ISRO's SoLEXS & HEL1OS Payloads
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -339,15 +358,20 @@ if input_mode == "📁 Upload 3 PRADAN Zip Files":
         h_list = [h for h in [uploaded_hls1, uploaded_hls2] if h is not None]
         processed_data, flare_events = process_day(uploaded_slx, h_list)
     else:
-        st.info("👋 **Please upload 1 SoLEXS zip and at least 1 HEL1OS zip in the sidebar to begin analysis.**")
-else:
+        st.info("👋 **Please upload 1 SoLEXS zip and at least 1 HEL1OS zip in the sidebar.** (Or select '🌟 Explore Live Demo Day' to view immediate live results!)")
+elif input_mode == "📅 Local 20-Day Archive (PC)":
     if selected_date and os.path.exists(DEFAULT_DATA_DIR):
         slx_path = os.path.join(DEFAULT_DATA_DIR, f"AL1_SLX_L1_{selected_date}_v1.0.zip")
         hls_files = sorted([os.path.join(DEFAULT_DATA_DIR, f) for f in os.listdir(DEFAULT_DATA_DIR) if f.startswith('HLS') and selected_date in f])
         if os.path.exists(slx_path) and hls_files:
             processed_data, flare_events = process_day(slx_path, hls_files)
+else:
+    # Live Demo Day Mode (Works on Cloud & Local instantly)
+    if sample_df is not None:
+        processed_data = sample_df
+        flare_events = detect_flare_events(sample_df, min_prominence=min_prominence, dt_sec=dt_sec)
 
-# If data is ready, render the upgraded rich interface
+# If data is ready, render the dashboard
 if processed_data is not None:
     df = processed_data
     
@@ -362,23 +386,18 @@ if processed_data is not None:
     if max_flux >= 800:
         peak_class = "X-Class"
         class_color = "#ff1744"
-        beacon_color = "#ff1744"
     elif max_flux >= 150:
         peak_class = "M-Class"
         class_color = "#ff9100"
-        beacon_color = "#ff9100"
     elif max_flux >= 40:
         peak_class = "C-Class"
         class_color = "#ffd600"
-        beacon_color = "#ffd600"
     elif max_flux >= 15:
         peak_class = "B-Class"
         class_color = "#00e676"
-        beacon_color = "#00e676"
     else:
         peak_class = "Quiet Sun"
         class_color = "#00e5ff"
-        beacon_color = "#00e5ff"
 
     # --- TOP METRIC CARDS ROW ---
     c1, c2, c3, c4, c5 = st.columns(5)
