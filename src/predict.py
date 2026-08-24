@@ -6,7 +6,7 @@ import pandas as pd
 
 from src.config import HORIZON_S, MODEL_PATH
 from src.features import build_features
-from src.flares import build_labels, detect_flare_events
+from src.flares import build_labels
 from src.data_loader import load
 
 
