@@ -10,6 +10,21 @@ def clean_fits_array(arr, dtype='<f8'):
     """Safely converts big-endian FITS array into native float64."""
     return np.array(arr, dtype=dtype)
 
+def validate_fits_header(hdul, required_hdus=None, required_cols=None):
+    """Validate FITS file structure and required columns."""
+    if required_hdus:
+        for hdu_name in required_hdus:
+            if hdu_name not in hdul:
+                raise ValueError(f"Required HDU '{hdu_name}' not found in FITS file. Available: {list(hdul.keys())}")
+    if required_cols:
+        for hdu_name, cols in required_cols.items():
+            if hdu_name in hdul:
+                hdu_cols = hdul[hdu_name].columns.names if hasattr(hdul[hdu_name], 'columns') else []
+                for col in cols:
+                    if col not in hdu_cols:
+                        raise ValueError(f"Required column '{col}' not found in HDU '{hdu_name}'. Available: {hdu_cols}")
+    return True
+
 def load_solexs_from_zip(zip_source):
     """
     Parses a SoLEXS 24-hour daily zip file (either filepath or file-like / bytes buffer).
@@ -29,7 +44,10 @@ def load_solexs_from_zip(zip_source):
             raw = gzip.decompress(raw)
         
         with fits.open(io.BytesIO(raw)) as hdul:
-            rate_hdu = hdul['RATE'] if 'RATE' in hdul else hdul[1]
+            # Validate FITS structure
+            validate_fits_header(hdul, required_hdus=['RATE'], required_cols={'RATE': ['TIME', 'COUNTS']})
+            
+            rate_hdu = hdul['RATE']
             rate_data = rate_hdu.data
             time_arr = clean_fits_array(rate_data['TIME'])
             counts_arr = clean_fits_array(rate_data['COUNTS'])
@@ -64,6 +82,9 @@ def load_hel1os_from_zip(zip_source):
                 with fits.open(io.BytesIO(z.read(lcf))) as hdul:
                     for hdu in hdul:
                         if hasattr(hdu, 'columns') and hdu.columns and 'ISOT' in hdu.columns.names and 'CTR' in hdu.columns.names:
+                            # Validate this HDU has required columns
+                            validate_fits_header(hdul, required_hdus=[hdu.name], required_cols={hdu.name: ['ISOT', 'CTR']})
+                            
                             hname = hdu.name.strip()
                             isot_arr = [str(s).strip() for s in hdu.data['ISOT']]
                             ctr_arr = clean_fits_array(hdu.data['CTR'])
@@ -74,7 +95,8 @@ def load_hel1os_from_zip(zip_source):
                             })
                             sub_df = sub_df.drop_duplicates('timestamp').set_index('timestamp')
                             records[hname] = sub_df
-            except Exception:
+            except Exception as e:
+                print(f"Warning: Failed to parse {lcf}: {e}")
                 continue
         
         if not records:
@@ -110,6 +132,7 @@ def merge_and_synchronize(solexs_df, hel1os_df_list, resample_freq='10s'):
     """
     Merges 1 SoLEXS 24h DataFrame with 1 or 2 HEL1OS DataFrames,
     and resamples onto a unified continuous UTC time-grid.
+    Adds gap indicator features so the model knows when data was imputed.
     """
     # 1. Merge HEL1OS parts
     if isinstance(hel1os_df_list, pd.DataFrame):
@@ -122,21 +145,15 @@ def merge_and_synchronize(solexs_df, hel1os_df_list, resample_freq='10s'):
     
     hls_all = hls_all.sort_values('timestamp').drop_duplicates('timestamp')
     
-    # 2. Resample SoLEXS
-    slx_resampled = (
-        solexs_df.set_index('timestamp')
-        .resample(resample_freq)
-        .mean()
-        .interpolate(method='linear', limit=12) # fill up to 2 mins gap
-    )
+    # 2. Resample SoLEXS - causal forward-fill with gap tracking
+    slx_resampled = solexs_df.set_index('timestamp').resample(resample_freq).mean()
+    slx_gaps = slx_resampled['solexs_counts'].isna().astype(int)  # 1 = gap
+    slx_resampled = slx_resampled.ffill(limit=12).fillna(0.0)  # short gaps: ffill; long gaps: 0
     
-    # 3. Resample HEL1OS
-    hls_resampled = (
-        hls_all.set_index('timestamp')
-        .resample(resample_freq)
-        .mean()
-        .interpolate(method='linear', limit=12)
-    )
+    # 3. Resample HEL1OS - causal forward-fill with gap tracking
+    hls_resampled = hls_all.set_index('timestamp').resample(resample_freq).mean()
+    hls_gaps = hls_resampled['hel1os_czt_total'].isna().astype(int)  # 1 = gap
+    hls_resampled = hls_resampled.ffill(limit=12).fillna(0.0)
     
     # 4. Align both on shared time index
     merged = pd.merge(
@@ -147,13 +164,17 @@ def merge_and_synchronize(solexs_df, hel1os_df_list, resample_freq='10s'):
         how='outer'
     ).sort_index()
     
-    # Fill remaining NaNs with forward/backward fill or baseline 0
-    merged['solexs_counts'] = merged['solexs_counts'].ffill().bfill().fillna(0.0)
-    merged['hel1os_czt_total'] = merged['hel1os_czt_total'].ffill().bfill().fillna(0.0)
+    # Gap indicators (1 = data was imputed/zero-filled, 0 = real measurement)
+    merged['solexs_gap'] = slx_gaps.reindex(merged.index, fill_value=1).astype(int)
+    merged['hel1os_gap'] = hls_gaps.reindex(merged.index, fill_value=1).astype(int)
+    
+    # Fill remaining NaNs with CAUSAL forward-fill only (no bfill = no future data)
+    merged['solexs_counts'] = merged['solexs_counts'].ffill().fillna(0.0)
+    merged['hel1os_czt_total'] = merged['hel1os_czt_total'].ffill().fillna(0.0)
     
     for b in ['hel1os_10_20', 'hel1os_20_40', 'hel1os_40_60', 'hel1os_60_80', 'hel1os_80_150']:
         if b in merged.columns:
-            merged[b] = merged[b].ffill().bfill().fillna(0.0)
+            merged[b] = merged[b].ffill().fillna(0.0)
         else:
             merged[b] = 0.0
             

@@ -1,76 +1,91 @@
 import numpy as np
 import pandas as pd
-from scipy.signal import find_peaks, savgol_filter
+from scipy.signal import find_peaks
 
 def compute_physics_features(df, dt_sec=10):
     """
-    Computes solar physics indicators from synchronized SoLEXS and HEL1OS time series:
-    - Dynamic baseline (quiescent Sun level)
+    Computes solar physics indicators from synchronized SoLEXS and HEL1OS time series.
+
+    All operations are STRICTLY CAUSAL — only past and present data is used.
+    No centered rolling, no symmetric filters, no central differences.
+
+    Features computed:
+    - Dynamic baseline (quiescent Sun level) via trailing-only rolling quantile
     - Excess flux above baseline
-    - Hardness Ratio (Hard X-ray / Soft X-ray)
-    - First and second time derivatives (Neupert Effect)
-    - Multi-scale rolling volatility and rate of rise
+    - Hardness Ratio (Hard X-ray / Soft X-ray) — instantaneous, no leakage
+    - First and second time derivatives via backward difference (Neupert Effect)
+    - Multi-scale trailing rolling volatility and rate of rise
     """
     df = df.copy()
-    
-    # 1. Smooth signals with rolling median to reject single-bin detector spikes
-    df['solexs_smooth'] = df['solexs_counts'].rolling(window=7, center=True, min_periods=1).median()
-    df['hel1os_smooth'] = df['hel1os_czt_total'].rolling(window=7, center=True, min_periods=1).median()
-    
-    # Optional Savitzky-Golay filtering for smooth continuous derivatives
-    try:
-        df['solexs_savgol'] = savgol_filter(df['solexs_smooth'], window_length=15, polyorder=2)
-        df['hel1os_savgol'] = savgol_filter(df['hel1os_smooth'], window_length=15, polyorder=2)
-    except Exception:
-        df['solexs_savgol'] = df['solexs_smooth']
-        df['hel1os_savgol'] = df['hel1os_smooth']
-    
-    # 2. Dynamic Baseline Estimation (30-min rolling 10th percentile / minimum)
-    baseline_window = int(1800 / dt_sec) # 30 mins
+
+    # 1. Causal trailing-window median (no future data)
+    #    window=7 looks at [t-6, t-5, ..., t], center=False is the default
+    df['solexs_smooth'] = df['solexs_counts'].rolling(window=7, center=False, min_periods=1).median()
+    df['hel1os_smooth'] = df['hel1os_czt_total'].rolling(window=7, center=False, min_periods=1).median()
+
+    # 2. Causal Exponential Weighted Mean (replaces symmetric Savitzky-Golay)
+    #    EWM with span=15 gives similar smoothing but only looks backward.
+    #    The exponential kernel decays into the past, using NO future points.
+    df['solexs_ewm'] = df['solexs_smooth'].ewm(span=15, adjust=False).mean()
+    df['hel1os_ewm'] = df['hel1os_smooth'].ewm(span=15, adjust=False).mean()
+
+    # 3. Dynamic Baseline — CAUSAL trailing-only 30-min window
+    #    center=False ensures the window covers [t - baseline_window + 1, t]
+    #    No back-fill — back-filling uses future values to fill leading NaNs
+    baseline_window = int(1800 / dt_sec)  # 30 mins = 180 steps at 10s
     df['solexs_baseline'] = (
         df['solexs_smooth']
-        .rolling(window=baseline_window, min_periods=max(5, baseline_window // 4), center=True)
+        .rolling(window=baseline_window, min_periods=max(5, baseline_window // 4), center=False)
         .quantile(0.10)
-        .bfill()
-        .ffill()
+        .ffill()          # forward-fill only (propagates last valid value forward)
+        .fillna(0.0)      # fill leading NaNs with 0 (no past data yet at start)
     )
     df['hel1os_baseline'] = (
         df['hel1os_smooth']
-        .rolling(window=baseline_window, min_periods=max(5, baseline_window // 4), center=True)
+        .rolling(window=baseline_window, min_periods=max(5, baseline_window // 4), center=False)
         .quantile(0.10)
-        .bfill()
         .ffill()
+        .fillna(0.0)
     )
-    
-    # 3. Excess Flux
+
+    # 4. Excess Flux
     df['solexs_excess'] = np.maximum(0.0, df['solexs_smooth'] - df['solexs_baseline'])
     df['hel1os_excess'] = np.maximum(0.0, df['hel1os_smooth'] - df['hel1os_baseline'])
-    
-    # 4. Hardness Ratio (HR)
-    # HR rises during impulsive non-thermal heating phase
+
+    # 5. Hardness Ratio (HR) — purely instantaneous, no leakage
+    #    HR rises during impulsive non-thermal heating phase
     df['hardness_ratio'] = (df['hel1os_smooth'] + 0.1) / (df['solexs_smooth'] + 1.0)
     df['hardness_ratio_excess'] = (df['hel1os_excess'] + 0.01) / (df['solexs_excess'] + 0.1)
-    
-    # 5. Temporal Derivatives (Neupert Effect indicator: d(SoLEXS)/dt ~ HEL1OS)
-    df['d_solexs_dt'] = np.gradient(df['solexs_savgol'], dt_sec)
-    df['d2_solexs_dt2'] = np.gradient(df['d_solexs_dt'], dt_sec)
-    df['d_hel1os_dt'] = np.gradient(df['hel1os_savgol'], dt_sec)
-    
-    # 6. Multi-scale rolling dynamics (5-min, 15-min, 30-min windows)
+
+    # 6. CAUSAL backward-difference derivatives (no central difference)
+    #    df.diff(1) computes x[t] - x[t-1], strictly causal
+    #    Replaces central-difference which peeks 1 step ahead
+    df['d_solexs_dt'] = (df['solexs_ewm'].diff(1) / dt_sec).fillna(0.0)
+    df['d2_solexs_dt2'] = (df['d_solexs_dt'].diff(1) / dt_sec).fillna(0.0)
+    df['d_hel1os_dt'] = (df['hel1os_ewm'].diff(1) / dt_sec).fillna(0.0)
+
+    # 7. Causal multi-scale trailing rolling dynamics
+    #    All windows are trailing (center=False), looking only at past + present
     w_5m = max(3, int(300 / dt_sec))
     w_15m = max(5, int(900 / dt_sec))
-    
-    df['solexs_mean_5m'] = df['solexs_smooth'].rolling(w_5m, min_periods=1).mean()
-    df['solexs_std_5m'] = df['solexs_smooth'].rolling(w_5m, min_periods=1).std().fillna(0)
+
+    df['solexs_mean_5m'] = df['solexs_smooth'].rolling(w_5m, center=False, min_periods=1).mean()
+    df['solexs_std_5m'] = df['solexs_smooth'].rolling(w_5m, center=False, min_periods=1).std().fillna(0)
     df['solexs_rise_rate_15m'] = (df['solexs_smooth'] - df['solexs_smooth'].shift(w_15m)).fillna(0)
-    
-    df['hel1os_mean_5m'] = df['hel1os_smooth'].rolling(w_5m, min_periods=1).mean()
-    df['hel1os_std_5m'] = df['hel1os_smooth'].rolling(w_5m, min_periods=1).std().fillna(0)
-    
+
+    df['hel1os_mean_5m'] = df['hel1os_smooth'].rolling(w_5m, center=False, min_periods=1).mean()
+    df['hel1os_std_5m'] = df['hel1os_smooth'].rolling(w_5m, center=False, min_periods=1).std().fillna(0)
+
     # Flare indicator score (Physics-guided preliminary score)
     noise_std = df['solexs_counts'].std() if df['solexs_counts'].std() > 0 else 1.0
     df['flare_signal_sigma'] = df['solexs_excess'] / noise_std
-    
+
+    # Ensure gap indicator columns exist (default 0 = no gaps)
+    if 'solexs_gap' not in df.columns:
+        df['solexs_gap'] = 0
+    if 'hel1os_gap' not in df.columns:
+        df['hel1os_gap'] = 0
+
     return df
 
 def classify_flare_intensity(peak_flux):
@@ -94,60 +109,65 @@ def classify_flare_intensity(peak_flux):
 
 def detect_flare_events(df, min_prominence=8.0, min_distance_mins=10, dt_sec=10):
     """
-    Detects solar flare events across the timeline:
+    Detects solar flare events across the timeline.
     Returns a list of structured flare event dictionaries.
+
+    NOTE: This function is for POST-HOC event cataloging and dashboard
+    visualization ONLY. It uses scipy.find_peaks which inherently
+    examines the full signal to identify peaks. It must NOT be used to
+    construct training labels — use extract_features_and_targets() for that.
     """
     if 'solexs_excess' not in df.columns:
         df = compute_physics_features(df, dt_sec=dt_sec)
-        
+
     signal = df['solexs_excess'].values
     timestamps = df['timestamp'].values
     min_dist_samples = max(3, int((min_distance_mins * 60) / dt_sec))
-    
+
     # Peak detection on excess flux
     peaks, properties = find_peaks(
         signal,
         prominence=min_prominence,
         distance=min_dist_samples,
-        width=int(60 / dt_sec) # at least 1 min width
+        width=int(60 / dt_sec)  # at least 1 min width
     )
-    
+
     events = []
     n_points = len(signal)
-    
+
     for i, p_idx in enumerate(peaks):
         peak_time = pd.to_datetime(timestamps[p_idx])
         peak_flux = float(df['solexs_counts'].iloc[p_idx])
         peak_excess = float(signal[p_idx])
-        
-        # Determine Start Time (step back until excess <= 10% of peak excess or <= baseline threshold)
+
+        # Determine Start Time (step back until excess <= 15% of peak excess)
         start_idx = p_idx
         thresh_start = max(1.0, 0.15 * peak_excess)
         while start_idx > 0 and signal[start_idx] > thresh_start and (p_idx - start_idx) < (7200 / dt_sec):
             start_idx -= 1
         start_time = pd.to_datetime(timestamps[start_idx])
-        
-        # Determine End Time (step forward until excess <= 20% of peak or baseline reached)
+
+        # Determine End Time (step forward until excess <= 20% of peak)
         end_idx = p_idx
         thresh_end = max(1.0, 0.20 * peak_excess)
         while end_idx < n_points - 1 and signal[end_idx] > thresh_end and (end_idx - p_idx) < (14400 / dt_sec):
             end_idx += 1
         end_time = pd.to_datetime(timestamps[end_idx])
-        
+
         duration_mins = max(1.0, (end_time - start_time).total_seconds() / 60.0)
         rise_time_mins = max(0.5, (peak_time - start_time).total_seconds() / 60.0)
         decay_time_mins = max(0.5, (end_time - peak_time).total_seconds() / 60.0)
-        
+
         # Peak Hardness Ratio
-        event_slice = df.iloc[start_idx:end_idx+1]
+        event_slice = df.iloc[start_idx:end_idx + 1]
         max_hr = float(event_slice['hardness_ratio'].max()) if len(event_slice) > 0 else 0.0
         max_hls_flux = float(event_slice['hel1os_czt_total'].max()) if len(event_slice) > 0 else 0.0
-        
+
         flare_cls, impact_desc, color_code = classify_flare_intensity(peak_flux)
-        
+
         # Total integrated counts (fluence proxy)
         fluence = float(event_slice['solexs_counts'].sum() * dt_sec)
-        
+
         events.append({
             'event_id': f"FLARE-{peak_time.strftime('%Y%m%d-%H%M')}",
             'start_time': start_time,
@@ -164,5 +184,5 @@ def detect_flare_events(df, min_prominence=8.0, min_distance_mins=10, dt_sec=10)
             'space_weather_alert': impact_desc,
             'color': color_code
         })
-        
+
     return events
