@@ -422,12 +422,13 @@ class SolarFlareAI:
 
     @classmethod
     def load(cls, filepath):
-        """Loads a serialized trained model."""
+        """Loads a serialized trained model. Backward compatible with older saves."""
         data = joblib.load(filepath)
         instance = cls()
         instance.clf_1h = data['clf_1h']
         instance.clf_2h = data['clf_2h']
-        instance.clf_class = data['clf_class']
+        # Backward compatibility: clf_class may not exist in older saves
+        instance.clf_class = data.get('clf_class', None)
         instance.reg_peak_flux = data['reg_peak_flux']
         instance.is_trained = data['is_trained']
         instance.metrics = data.get('metrics', {})
