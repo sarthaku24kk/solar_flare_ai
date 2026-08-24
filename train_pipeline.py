@@ -43,9 +43,7 @@ def run_training_pipeline(data_dir=r'C:\Users\sarth\OneDrive\Pictures\New folder
     all_y1_list = []
     all_y2_list = []
     all_yflux_list = []
-    all_yclass_list = []
     all_events_summary = []
-    processed_dates = []  # Track only successfully processed dates
 
     total_start = time.time()
 
@@ -85,19 +83,17 @@ def run_training_pipeline(data_dir=r'C:\Users\sarth\OneDrive\Pictures\New folder
             # Feature extraction for AI training (labels from strictly future windows)
             X, y1, y2, yflux, yclass, valid_mask = extract_features_and_targets(physics_df, dt_sec=10)
 
-            # Only keep rows with complete forecast horizons
-            X_valid = X[valid_mask].reset_index(drop=True)
-            y1_valid = y1[valid_mask].reset_index(drop=True)
-            y2_valid = y2[valid_mask].reset_index(drop=True)
-            yflux_valid = yflux[valid_mask].reset_index(drop=True)
-            yclass_valid = yclass[valid_mask].reset_index(drop=True)
+            # Filter rows with complete future windows
+            mask_arr = valid_mask.values if hasattr(valid_mask, 'values') else np.asarray(valid_mask)
+            X_valid = X[mask_arr].reset_index(drop=True)
+            y1_valid = pd.Series(y1[mask_arr]).reset_index(drop=True)
+            y2_valid = pd.Series(y2[mask_arr]).reset_index(drop=True)
+            yflux_valid = pd.Series(yflux[mask_arr]).reset_index(drop=True)
 
             all_X_list.append(X_valid)
             all_y1_list.append(y1_valid)
             all_y2_list.append(y2_valid)
             all_yflux_list.append(yflux_valid)
-            all_yclass_list.append(yclass_valid)
-            processed_dates.append(date_str)  # Track successfully processed date
 
             for ev in events:
                 all_events_summary.append({
@@ -124,34 +120,31 @@ def run_training_pipeline(data_dir=r'C:\Users\sarth\OneDrive\Pictures\New folder
         raise RuntimeError("No training data could be processed.")
 
     # ── CHRONOLOGICAL TRAIN / VALIDATION / TEST SPLIT ──
-    # Use processed_dates (only successfully processed days) for correct alignment
+    # Days are already sorted chronologically (sorted_dates).
     # Split: 70% train | 15% validation | 15% test
     n_days = len(all_X_list)
-    n_train = int(n_days * 0.70)   # First 70%
-    n_val   = int(n_days * 0.15)   # Next 15%
-    # n_test = remainder             # Last 15%
+    n_train = int(n_days * 0.70)   # First 14 days
+    n_val   = int(n_days * 0.15)   # Next 3 days
+    # n_test = remainder             # Last 3 days
 
-    train_dates = processed_dates[:n_train]
-    val_dates   = processed_dates[n_train:n_train + n_val]
-    test_dates  = processed_dates[n_train + n_val:]
+    train_dates = sorted_dates[:n_train]
+    val_dates   = sorted_dates[n_train:n_train + n_val]
+    test_dates  = sorted_dates[n_train + n_val:]
 
     X_train = pd.concat(all_X_list[:n_train], ignore_index=True)
     y1_train = pd.concat(all_y1_list[:n_train], ignore_index=True)
     y2_train = pd.concat(all_y2_list[:n_train], ignore_index=True)
     yflux_train = pd.concat(all_yflux_list[:n_train], ignore_index=True)
-    yclass_train = pd.concat(all_yclass_list[:n_train], ignore_index=True)
 
     X_val = pd.concat(all_X_list[n_train:n_train + n_val], ignore_index=True)
     y1_val = pd.concat(all_y1_list[n_train:n_train + n_val], ignore_index=True)
     y2_val = pd.concat(all_y2_list[n_train:n_train + n_val], ignore_index=True)
     yflux_val = pd.concat(all_yflux_list[n_train:n_train + n_val], ignore_index=True)
-    yclass_val = pd.concat(all_yclass_list[n_train:n_train + n_val], ignore_index=True)
 
     X_test = pd.concat(all_X_list[n_train + n_val:], ignore_index=True)
     y1_test = pd.concat(all_y1_list[n_train + n_val:], ignore_index=True)
     y2_test = pd.concat(all_y2_list[n_train + n_val:], ignore_index=True)
     yflux_test = pd.concat(all_yflux_list[n_train + n_val:], ignore_index=True)
-    yclass_test = pd.concat(all_yclass_list[n_train + n_val:], ignore_index=True)
 
     print(f"\n=== CHRONOLOGICAL SPLIT ===")
     print(f"Train Days ({len(train_dates)}): {train_dates}")
@@ -167,15 +160,15 @@ def run_training_pipeline(data_dir=r'C:\Users\sarth\OneDrive\Pictures\New folder
 
     # Train AI model on TRAINING DATA ONLY
     ai = SolarFlareAI()
-    ai.fit(X_train, y1_train, y2_train, yflux_train, yclass_train)
+    ai.fit(X_train, y1_train, y2_train, yflux_train)
 
     # Evaluate on held-out VALIDATION set
     print("\n--- Validation Set ---")
-    ai.evaluate(X_val, y1_val, y2_val, yflux_val, yclass_val, label="VALIDATION")
+    ai.evaluate(X_val, y1_val, y2_val, yflux_val, label="VALIDATION")
 
     # Evaluate on held-out TEST set
     print("\n--- Test Set ---")
-    test_metrics_1h, test_metrics_2h, test_metrics_class, test_event_1h, test_event_2h = ai.evaluate(X_test, y1_test, y2_test, yflux_test, yclass_test, label="TEST")
+    test_metrics_1h, test_metrics_2h = ai.evaluate(X_test, y1_test, y2_test, yflux_test, label="TEST")
 
     # Save Model
     model_path = os.path.join(output_dir, 'solar_flare_ai_model.pkl')
@@ -183,10 +176,7 @@ def run_training_pipeline(data_dir=r'C:\Users\sarth\OneDrive\Pictures\New folder
 
     # Save Catalog & Metrics
     summary = {
-        'total_days': len(processed_dates),
-        'discovered_days': len(sorted_dates),
-        'processed_days': len(processed_dates),
-        'skipped_days': len(sorted_dates) - len(processed_dates),
+        'total_days': len(sorted_dates),
         'split': {
             'train_days': train_dates,
             'val_days': val_dates,
@@ -200,9 +190,6 @@ def run_training_pipeline(data_dir=r'C:\Users\sarth\OneDrive\Pictures\New folder
         'metrics': ai.metrics,
         'test_metrics_1h': test_metrics_1h,
         'test_metrics_2h': test_metrics_2h,
-        'test_metrics_class': test_metrics_class,
-        'test_event_metrics_1h': test_event_1h,
-        'test_event_metrics_2h': test_event_2h,
         'features': list(X_train.columns),
         'causal_pipeline': True,
         'leakage_free': True,
