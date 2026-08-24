@@ -119,11 +119,100 @@ st.markdown(f"""
         box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
     }}
 
-    /* Sidebar Glassmorphism */
+    /* Sidebar Glassmorphism & High-Contrast White Typography */
     section[data-testid="stSidebar"] {{
-        background: rgba(10, 14, 22, 0.88) !important;
+        background: rgba(10, 14, 22, 0.92) !important;
         backdrop-filter: blur(20px) !important;
-        border-right: 1px solid rgba(255, 107, 0, 0.18) !important;
+        border-right: 1px solid rgba(255, 107, 0, 0.25) !important;
+        color: #ffffff !important;
+    }}
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] div,
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] h4 {{
+        color: #ffffff !important;
+        font-weight: 500;
+    }}
+    section[data-testid="stSidebar"] .stCaption,
+    section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {{
+        color: #e2e8f0 !important;
+        font-weight: 500 !important;
+    }}
+
+    /* High-Contrast White Font for File Uploader & Drag-and-Drop Area */
+    div[data-testid="stFileUploader"] {{
+        background: rgba(18, 24, 38, 0.88) !important;
+        border-radius: 12px;
+        padding: 12px;
+        border: 1px dashed rgba(255, 145, 0, 0.6) !important;
+        margin-bottom: 12px;
+    }}
+    div[data-testid="stFileUploader"] label,
+    div[data-testid="stFileUploader"] label p,
+    div[data-testid="stFileUploader"] label span {{
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 0.95rem !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }}
+    div[data-testid="stFileUploader"] section {{
+        background: rgba(26, 32, 50, 0.95) !important;
+        border: 1px dashed rgba(255, 145, 0, 0.7) !important;
+        border-radius: 10px !important;
+        padding: 12px !important;
+    }}
+    div[data-testid="stFileUploader"] section *,
+    div[data-testid="stFileUploaderDropzoneInstructions"] *,
+    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] p,
+    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] span,
+    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] small {{
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }}
+    div[data-testid="stFileUploader"] button {{
+        background: linear-gradient(135deg, #ff6b00 0%, #ff1744 100%) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 10px rgba(255, 107, 0, 0.3) !important;
+    }}
+    div[data-testid="stFileUploader"] button * {{
+        color: #ffffff !important;
+    }}
+
+    /* Radio buttons and Selectboxes text in Sidebar */
+    div[data-testid="stRadio"] label,
+    div[data-testid="stRadio"] label p,
+    div[data-testid="stRadio"] label span {{
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }}
+    div[data-testid="stSelectbox"] label,
+    div[data-testid="stSelectbox"] label p,
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] * {{
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }}
+    div[data-testid="stSlider"] label,
+    div[data-testid="stSlider"] label p {{
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }}
+
+    /* Alert / Info Box text */
+    div[data-testid="stAlert"] {{
+        background: rgba(20, 26, 42, 0.95) !important;
+        border: 1px solid rgba(255, 145, 0, 0.5) !important;
+        border-radius: 10px;
+    }}
+    div[data-testid="stAlert"] * {{
+        color: #ffffff !important;
+        font-weight: 500 !important;
     }}
 </style>
 """, unsafe_allow_html=True)
