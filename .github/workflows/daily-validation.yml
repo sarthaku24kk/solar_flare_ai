@@ -2,7 +2,7 @@ name: daily-validation
 
 on:
   schedule:
-    - cron: "30 2 * * *"  # daily 02:30 UTC
+    - cron: "30 3 * * *"  # daily 09:00 IST (03:30 UTC)
   workflow_dispatch: {}
 
 permissions:
