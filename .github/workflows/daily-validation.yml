@@ -1,0 +1,59 @@
+name: daily-validation
+
+on:
+  schedule:
+    - cron: "30 2 * * *"  # daily 02:30 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run causality validation (light, no raw data needed)
+        run: |
+          python -m pytest tests/test_causality.py -q
+
+      - name: Append daily status log
+        run: |
+          mkdir -p output
+          DATE_UTC=$(date -u +%F)
+          SHA_SHORT=$(git rev-parse --short HEAD)
+          echo "| ${DATE_UTC} | ${SHA_SHORT} | PASS tests/test_causality.py |" >> output/daily-status.md
+          if ! head -n 1 output/daily-status.md | grep -q "| date"; then
+            sed -i '1i| date | commit | result |\n|---|---|---|' output/daily-status.md
+          fi
+          cat output/daily-status.md | tail -n 5
+
+      - name: Commit status log if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/daily-status.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            DATE_UTC=$(date -u +%F)
+            git commit -m "chore: daily validation ${DATE_UTC}"
+            git push
+          fi
